@@ -19,7 +19,8 @@ public class EnemyMovement : MonoBehaviour
         {
             // Bestimme den Richtungsvektor vom Gegner zum Spieler
             Vector3 directionToPlayer = (player.transform.position - transform.position).normalized;
-            if (directionToPlayer.magnitude >= 1)
+            Vector3 directionToPlayerNotNorm = (player.transform.position - transform.position);
+            if (directionToPlayer.magnitude >= 0.9 && directionToPlayerNotNorm.magnitude >= 1.0)
             {
                 //Bewege den Gegner in Richtung des Spielers
                 transform.Translate(directionToPlayer * speedToMove * Time.deltaTime);
@@ -28,5 +29,9 @@ public class EnemyMovement : MonoBehaviour
 
     }
 
+    public void SetTarget(GameObject target)
+    {
+        this.player = target;
+    }
 
 }

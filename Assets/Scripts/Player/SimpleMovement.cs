@@ -4,7 +4,7 @@ public class SimpleMovement : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     [SerializeField]
-    private float speedTranslation = 1f;
+    private float speedMovement = 1f;
 
     [SerializeField]
     private float speedRotation = 1f;
@@ -29,19 +29,19 @@ public class SimpleMovement : MonoBehaviour
     { 
         if (Input.GetKey(KeyCode.W))
         {
-            transform.Translate(0, 0, speedTranslation * Time.deltaTime);
+            transform.Translate(0, 0, speedMovement * Time.deltaTime);
         }
         if (Input.GetKey(KeyCode.A))
         {
-            transform.Translate(-speedTranslation * Time.deltaTime, 0, 0);
+            transform.Translate(-speedMovement * Time.deltaTime, 0, 0);
         }
         if (Input.GetKey(KeyCode.S))
         {
-            transform.Translate(0, 0, -speedTranslation * Time.deltaTime);
+            transform.Translate(0, 0, -speedMovement * Time.deltaTime);
         }
         if (Input.GetKey(KeyCode.D))
         {
-            transform.Translate(speedTranslation * Time.deltaTime, 0, 0);
+            transform.Translate(speedMovement * Time.deltaTime, 0, 0);
         }
         if (Input.GetKey(KeyCode.Space))
         {
