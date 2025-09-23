@@ -8,13 +8,22 @@ public class SimpleMovement : MonoBehaviour
 
     [SerializeField]
     private float speedRotation = 1f;
+    private Rigidbody rb;
+    private Animator animator;
 
     [SerializeField]
     private float jumpHigh = 1f;
+
+    private void Awake()
+    {
+        rb = gameObject.GetComponent<Rigidbody>();
+        animator = gameObject.GetComponent<Animator>();
+    }
     void Start()
     {
         
     }
+
 
     // Update is called once per frame
     void Update()
@@ -26,28 +35,42 @@ public class SimpleMovement : MonoBehaviour
     // Time.DeltaTime is the time in seconds it took to complete the last frame (Read Only). This can be used to make things frame rate independent.
     // Es ist ein Multiplikator, der dafür sorgt, dass die Bewegungsgeschwindigkeit unabhängig von der Framerate ist.
     private void keyboardEvents() // Tastatur Events
-    { 
+    {
+        bool moveflag = false;
         if (Input.GetKey(KeyCode.W))
         {
             transform.Translate(0, 0, speedMovement * Time.deltaTime);
+            animator.SetFloat("Velocity", 1.0f);
+            moveflag = true;
         }
         if (Input.GetKey(KeyCode.A))
         {
             transform.Translate(-speedMovement * Time.deltaTime, 0, 0);
+            animator.SetFloat("Velocity", 1.0f);
+            moveflag = true;
         }
         if (Input.GetKey(KeyCode.S))
         {
             transform.Translate(0, 0, -speedMovement * Time.deltaTime);
+            animator.SetFloat("Velocity", 1.0f);
+            moveflag = true;
         }
         if (Input.GetKey(KeyCode.D))
         {
             transform.Translate(speedMovement * Time.deltaTime, 0, 0);
+            animator.SetFloat("Velocity", 1.0f);
+            moveflag = true;
         }
         if (Input.GetKey(KeyCode.Space))
         {
             transform.Translate(0, jumpHigh * Time.deltaTime, 0);
+            animator.SetFloat("Velocity", 1.0f);
+            moveflag = true;
         }
-
+        if (!moveflag)
+        {
+            animator.SetFloat("Velocity", 0.0f);
+        }
     }
 
     private void mouseEvents() // Maus Events
