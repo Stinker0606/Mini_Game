@@ -23,12 +23,7 @@ public class HPSystem : MonoBehaviour
 
         if (currentHP <= 0)
         {
-            Die();
+            Destroy(gameObject);
         }
-    }
-
-    void Die()
-    {
-        Destroy(gameObject);
     }
 }
