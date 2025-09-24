@@ -18,20 +18,40 @@ public class PlayerShooting : MonoBehaviour
     // Streuung (Bloom) beim Schießen aus der Hüfte
     [SerializeField] private float hipFireSpread = 0.1f;
 
+    public Animator animator;
+    
+
     void Update()
     {
+        if (Input.GetMouseButton(0))
+        {
+            animator.SetBool("isShooting", true);
+        }
+        else
+        {
+            animator.SetBool("isShooting", false);
+
+        }
         // Wenn die linke Maustaste gedrückt wird
         if (Input.GetMouseButton(0))
         {
+            
+
             // Schuss-Timer aktualisieren
             fireTimer += Time.deltaTime;
+            
 
+            
             if (fireTimer >= fireRate)
             {
                 Shoot();
                 fireTimer = 0f; // Setze den Timer zurück für den nächsten Schuss
             }
+            
         }
+       
+    
+
     }
 
     void Shoot()

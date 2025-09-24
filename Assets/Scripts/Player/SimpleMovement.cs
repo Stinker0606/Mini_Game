@@ -10,10 +10,13 @@ public class SimpleMovement : MonoBehaviour
     private float speedRotation = 50f;
     private Rigidbody rb;
     private Animator animator;
+    
+    
 
     [SerializeField]
     private float jumpHigh = 1f;
 
+    
     private void Awake()
     {
         rb = gameObject.GetComponent<Rigidbody>();
@@ -71,8 +74,8 @@ public class SimpleMovement : MonoBehaviour
         {
             animator.SetFloat("Velocity", 0.0f);
         }
-    }
 
+    }
     private void mouseEvents()
     {
         float mouseX = Input.GetAxis("Mouse X");
