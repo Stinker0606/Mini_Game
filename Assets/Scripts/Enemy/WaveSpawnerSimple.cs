@@ -3,7 +3,7 @@ using UnityEngine;
 public class WaveSpawnerSimple : MonoBehaviour
 {
     public GameObject enemyPrefab;
-    public GameObject spawnPoint;
+    public GameObject[] spawnPoints;
     public float startTime;
     public float endTime;
     public float spawnRate;
@@ -28,8 +28,14 @@ public class WaveSpawnerSimple : MonoBehaviour
 
     void Spawn()
     {
-        Debug.Log("Spawning started.");
-        GameObject spawnedObject = Instantiate(enemyPrefab, spawnPoint.transform.position, Quaternion.identity);
+        // 1. Wähle einen zufälligen Spawnpunkt aus dem Array aus
+        int randomIndex = Random.Range(0, spawnPoints.Length);
+        GameObject randomSpawnPoint = spawnPoints[randomIndex];
+
+        // 2. Erstelle den Gegner an der Position des zufällig gewählten Spawnpunkts
+        GameObject spawnedObject = Instantiate(enemyPrefab, randomSpawnPoint.transform.position, Quaternion.identity);
+
+        // 3. Gib dem Gegner das Ziel (den Spieler)
         EnemyMovement movementComponent = spawnedObject.GetComponent<EnemyMovement>();
         if (movementComponent)
         {
