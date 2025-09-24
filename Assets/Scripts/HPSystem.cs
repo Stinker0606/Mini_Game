@@ -1,7 +1,11 @@
 using UnityEngine;
 
-public class ContactDestroyer : MonoBehaviour
+public class HPSystem : MonoBehaviour
 {
+    public float currentHP = 100;
+
+    public float  incomingDamage = 10;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -13,10 +17,18 @@ public class ContactDestroyer : MonoBehaviour
     {
         
     }
+    public void TakeDamage(float amount)
+    {
+        currentHP -= amount;
 
-    private void OnTriggerEnter(Collider other)
+        if (currentHP <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
     {
         Destroy(gameObject);
-        Destroy(other.gameObject);
     }
 }

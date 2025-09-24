@@ -8,12 +8,23 @@ public class PlayerShooting : MonoBehaviour
     // Ein leerer Punkt vor dem Spieler, von wo aus geschossen wird
     public Transform firePoint;
 
+    // Ein Timer, um zu steuern, wie schnell wir schießen
+    private float fireTimer = 0.0f;
+    [SerializeField] private float fireRate = 0.1f; // Zeit zwischen den Schüssen
+
     void Update()
     {
         // Wenn die linke Maustaste gedrückt wird
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButton("Fire1"))
         {
-            Shoot();
+            // Schuss-Timer aktualisieren
+            fireTimer += Time.deltaTime;
+
+            if (fireTimer >= fireRate)
+            {
+                Shoot();
+                fireTimer = 0f; // Setze den Timer zurück für den nächsten Schuss
+            }
         }
     }
 

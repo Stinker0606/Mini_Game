@@ -3,7 +3,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [SerializeField]
-    private float speed = 20f;
+    private float speed = 40f;
 
     private Vector3 flightDirection;
     public void SetDirection(Vector3 newDirection)

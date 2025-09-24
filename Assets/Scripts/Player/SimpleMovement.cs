@@ -77,5 +77,8 @@ public class SimpleMovement : MonoBehaviour
     {
         float mouseX = Input.GetAxis("Mouse X");
         transform.Rotate(0, mouseX * speedRotation * Time.deltaTime, 0);
+
+        float mouseY = Input.GetAxis("Mouse Y");
+        transform.Rotate(-mouseY * speedRotation * Time.deltaTime, 0, 0);
     }
 }
