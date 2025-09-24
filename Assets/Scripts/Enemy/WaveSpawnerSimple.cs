@@ -11,6 +11,7 @@ public class WaveSpawnerSimple : MonoBehaviour
 
     void Start()
     {
+           WaveManager.instance.AddWaveSpawner(this);
         // Invoke the "Spawn" method repeatedly starting after "startTime" seconds,
         // with "spawnRate" seconds between each invocation.
         // --> don't put it in update!
@@ -39,6 +40,7 @@ public class WaveSpawnerSimple : MonoBehaviour
     {
         // Cancel the repeated invocation of the "Spawn" method
         CancelInvoke("Spawn");
+        WaveManager.instance.RemoveWaveSpawner(this);
 
         // Additional cleanup or logic if needed
         Debug.Log("Spawning cancelled.");
