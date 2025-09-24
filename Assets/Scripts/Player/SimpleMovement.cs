@@ -4,10 +4,10 @@ public class SimpleMovement : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     [SerializeField]
-    private float speedMovement = 1f;
+    private float speedMovement = 5f;
 
     [SerializeField]
-    private float speedRotation = 1f;
+    private float speedRotation = 50f;
     private Rigidbody rb;
     private Animator animator;
 
@@ -73,12 +73,9 @@ public class SimpleMovement : MonoBehaviour
         }
     }
 
-    private void mouseEvents() // Maus Events
+    private void mouseEvents()
     {
         float mouseX = Input.GetAxis("Mouse X");
-        transform.Rotate(0, mouseX * speedRotation * Time.deltaTime, 0);
-
-        float mouseY = Input.GetAxis("Mouse Y");
-        transform.Rotate(-mouseY * speedRotation * Time.deltaTime, 0, 0);
+        transform.Rotate(0, mouseX * speedRotation, 0);
     }
 }

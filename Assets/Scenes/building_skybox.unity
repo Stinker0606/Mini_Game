@@ -1624,19 +1624,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2836004475591197023, guid: f432554f564e69242897607d34218939, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.014759753
+      value: 0.014756256
       objectReference: {fileID: 0}
     - target: {fileID: 2836004475591197023, guid: f432554f564e69242897607d34218939, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.0070776786
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2836004475591197023, guid: f432554f564e69242897607d34218939, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.99986607
+      value: -0.9998911
       objectReference: {fileID: 0}
     - target: {fileID: 2836004475591197023, guid: f432554f564e69242897607d34218939, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.00010190149
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2836004475591197023, guid: f432554f564e69242897607d34218939, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1648,7 +1648,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2836004475591197023, guid: f432554f564e69242897607d34218939, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0.811
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2836004475591695743, guid: f432554f564e69242897607d34218939, type: 3}
       propertyPath: m_Name
@@ -1656,7 +1656,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2836004475591695743, guid: f432554f564e69242897607d34218939, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -3465,7 +3465,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedMovement: 5
-  speedRotation: 50
+  speedRotation: 2
   jumpHigh: 5
 --- !u!4 &315060728 stripped
 Transform:
@@ -3513,7 +3513,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 3951222501109133495, guid: af2857688a2b9794b91e377df8af9b5e, type: 3}
   firePoint: {fileID: 746728633}
-  fireRate: 0.1
+  fireRate: 0.2
+  isAiming: 0
+  hipFireSpread: 0.08
 --- !u!136 &315060733
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3550,6 +3552,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aimCamera: {fileID: 815039188}
+  playerShootingScript: {fileID: 315060731}
 --- !u!114 &315060736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3733,7 +3736,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: 0.00000003803498, y: 0.9998911, z: 0.0000025765823, w: -0.014760189}
-  m_LocalPosition: {x: 113.67581, y: 3.719987, z: 122.06579}
+  m_LocalPosition: {x: 113.6758, y: 3.7199998, z: 122.06578}
   m_LocalScale: {x: 0.93837005, y: 1.0877, z: 0.59826}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6669,7 +6672,7 @@ Transform:
   m_GameObject: {fileID: 706664634}
   serializedVersion: 2
   m_LocalRotation: {x: -9.165155e-10, y: -0.00000003073364, z: -1.5276667e-13, w: 1}
-  m_LocalPosition: {x: 0, y: -0, z: -1.7550944}
+  m_LocalPosition: {x: 0.000018916853, y: 0.0000049751075, z: -1.7550937}
   m_LocalScale: {x: 1.0656778, y: 0.9193711, z: 1.6715139}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6714,7 +6717,7 @@ MonoBehaviour:
     CollisionFilter:
       serializedVersion: 2
       m_Bits: 1
-    IgnoreTag: Untagged
+    IgnoreTag: Player
     CameraRadius: 0.2
     DampingIntoCollision: 0
     DampingFromCollision: 0.5
@@ -7887,7 +7890,7 @@ MonoBehaviour:
     CollisionFilter:
       serializedVersion: 2
       m_Bits: 1
-    IgnoreTag: Untagged
+    IgnoreTag: Player
     CameraRadius: 0.2
     DampingIntoCollision: 0
     DampingFromCollision: 0.5
